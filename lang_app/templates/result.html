@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>결과 분석</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1 class="result-title">🔍 결과 분석</h1>
+
+    <!-- 사용자 입력 -->
+    <section class="patient-data">
+      <h2>🙋‍♀️ 현재 증상</h2>
+      <p class="patient-symptoms">{{ patient_input }}</p>
+    </section>
+
+    <!-- 결과 -->
+    <section class="predicted-diseases">
+      <h2>🩺 예상 질병</h2>
+      {% for response in generated_response %}
+      <div class="disease-card">
+        <h3>{{ response.disease_name }}</h3>
+        <p><strong>📌 관련 증상:</strong> {{ response.symptoms }}</p>
+        <p><strong>💊 치료 방법:</strong> {{ response.treatments }}</p>
+      </div>
+      {% endfor %}
+    </section>
+
+    <a href="/" class="btn-back">🔄 다시 시도하기</a>
+  </div>
+</body>
+</html>
