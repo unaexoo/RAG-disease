@@ -67,7 +67,7 @@ for doc in docs:
 
 # %%
 # 단계 7: 언어 모델 생성
-llm=ChatGroq(temperature=0, model="gemma2-9b-it", api_key="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")
+llm=ChatGroq(temperature=0, model="gemma2-9b-it", api_key="")
 
 # %%
 llm.invoke("나 콧물 나와")
